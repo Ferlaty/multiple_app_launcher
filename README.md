@@ -13,6 +13,10 @@ An app, which can launch multiple apps, which can be configured by the user.
 ## Settings GUI app:
 <img width="445" height="386" alt="image" src="https://github.com/user-attachments/assets/328c7596-8f12-432b-8efa-898b2577d3d5" />
 
+<<<<<<< HEAD
 Begginer friendly GUI
+=======
+Begginer friendly GUI,
+>>>>>>> origin/main
 
 2026 Ferlaty
