@@ -1,6 +1,6 @@
 # Multiple app launcher
 An app, which can launch multiple apps, which can be configured by the user.
-<img width="743" height="243" alt="multiple_app_launcher" src="https://github.com/user-attachments/assets/72f474e3-5eb7-4459-a1c5-cc2e4036c188" />
+<img width="743" height="243" alt="multiple_app_launcher" src="https://github.com/user-attachments/assets/0ea11827-c21e-4d9e-8ff1-87dbf65120c1" style="margin: auto; width: 50%; display: block;"/>
 
 Main website: [ferlaty.pages.dev/multiple_app_launcher](https://ferlaty.pages.dev/multiple_app_launcher)
 
@@ -13,7 +13,8 @@ Main website: [ferlaty.pages.dev/multiple_app_launcher](https://ferlaty.pages.de
 - console app
 
 ## Settings GUI app:
-<img width="445" height="386" alt="image" src="https://github.com/user-attachments/assets/328c7596-8f12-432b-8efa-898b2577d3d5" />
+<img width="445" height="386" alt="image" src="https://github.com/user-attachments/assets/2f344453-4c94-44dd-9d29-54a42fc8ba17" style="margin: auto; width: 50%; display: block;" />
+Begginer friendly GUI
 
 # ⚙️ Instalation
 
@@ -21,17 +22,19 @@ Main website: [ferlaty.pages.dev/multiple_app_launcher](https://ferlaty.pages.de
 
 1. Go to the [Releases](https://github.com/Ferlaty/multiple_app_launcher/releases) page.
 
-2. Download the latest version for your OS.
+2. Download the version, which you want (latest is the recommended).
 
 3. Extract and run the executable. No Python installation required.
 
+4. Optional: you can paste a shortcut of the `multiple_app_launcher.exe` to `C:\ProgramData\Microsoft\Windows\Start Menu\Programs` and you will have it in your Start Menu.
+
 ## 🛠️ Installation from Source
 
-# Prerequites: Python 3.9 or higher
+### Prerequites: Python 3.9 or higher
 
 1. Clone the repo: 
    `git clone https://github.com/Ferlaty/multiple_app_launcher.git`
-   `multiple_app_launcher`
+   `cd multiple_app_launcher`
 
 2. Install Dependencies:
    `pip install -r requirements.txt`
@@ -40,7 +43,5 @@ Main website: [ferlaty.pages.dev/multiple_app_launcher](https://ferlaty.pages.de
    `pip MultipleAppLauncher.py`   
 
 
-
-Begginer friendly GUI,
 
 2026 Ferlaty
