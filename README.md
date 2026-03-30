@@ -1,6 +1,6 @@
 # Multiple app launcher
 An app, which can launch multiple apps, which can be configured by the user.
-<img width="743" height="243" alt="multiple_app_launcher" src="https://github.com/user-attachments/assets/0ea11827-c21e-4d9e-8ff1-87dbf65120c1" style="margin: auto; width: 50%; display: block;"/>
+<img width="1104" height="354" alt="Image" src="https://github.com/user-attachments/assets/65b6c7c7-4939-4b04-bc94-347616f865d6" style="margin: auto; display: block;"/>
 
 Main website: [ferlaty.pages.dev/multiple_app_launcher](https://ferlaty.pages.dev/multiple_app_launcher)
 
@@ -13,7 +13,7 @@ Main website: [ferlaty.pages.dev/multiple_app_launcher](https://ferlaty.pages.de
 - console app
 
 ## Settings GUI app:
-<img width="445" height="386" alt="image" src="https://github.com/user-attachments/assets/2f344453-4c94-44dd-9d29-54a42fc8ba17" style="margin: auto; width: 50%; display: block;" />
+<img width="473" height="616" alt="Image" src="https://github.com/user-attachments/assets/e9c8965c-a824-42c8-8ef6-6af70a3a7516" style="margin: auto; display: block;" />
 Begginer friendly GUI
 
 # ⚙️ Instalation
