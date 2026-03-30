@@ -35,7 +35,9 @@ Begginer friendly GUI
 
 ## 🛠️ Installation from Source
 
-### Prerequites: Python 3.9 or higher
+### Prerequites: Python 3.9 or higher;
+
+### Instructions:
 
 1. Clone the repo: 
    `git clone https://github.com/Ferlaty/multiple_app_launcher.git`
