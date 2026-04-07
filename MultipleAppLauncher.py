@@ -29,7 +29,22 @@ logging.info(f"Working directory: {workingDir}\n--------------------------------
 config = configparser.ConfigParser()
 config.sections()
 
-config.read('launcher.ini')
+launcherINI = config.read('launcher.ini')
+
+if not launcherINI:
+  config['Apps'] = {'1': '',
+                     '2': '',
+                     '3': '',
+                     '4': '',
+                     '5': '',
+                     '6': '',
+                     '7': '',
+                     '8': '',
+                     '9': '',
+                     '10': ''}
+  config['Time'] = {'time_between': '5'}
+  with open('launcher.ini', 'w') as configfile:
+   config.write(configfile)
 
 #Get app directories from the launcher.ini file
 app_1 = config.get('Apps', '1')
@@ -100,8 +115,8 @@ def run_commands():
      try:
       subprocess.Popen([app_1], cwd=app1_dir)
       getCurrentTime()
-      print(f"[{currentTime.strftime("%X")}] Launching(#1): {app1_name} ({app_1})")
-      logging.info(f"Launching(#1): {app1_name} ({app_1})")
+      print(f"[{currentTime.strftime("%X")}] Launching (#1): {app1_name} ({app_1})")
+      logging.info(f"Launching (#1): {app1_name} ({app_1})")
       time.sleep(time_between)
 
      except FileNotFoundError:
@@ -138,8 +153,8 @@ def run_commands():
         try:
           subprocess.Popen([app_x], cwd=appx_dir)
           getCurrentTime()
-          print(f"[{currentTime.strftime("%X")}] Launching(#{noOfCommands}): {appx_name} ({app_x})")
-          logging.info(f"Launching(#{noOfCommands}): {appx_name} ({app_x})")
+          print(f"[{currentTime.strftime("%X")}] Launching (#{noOfCommands}): {appx_name} ({app_x})")
+          logging.info(f"Launching (#{noOfCommands}): {appx_name} ({app_x})")
         except  FileNotFoundError:
          getCurrentTime()
          print(f"[{currentTime.strftime("%X")}] WARNING at command #{noOfCommands}: The file {app_x} was moved or deleted.")
