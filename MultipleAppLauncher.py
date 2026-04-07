@@ -9,6 +9,7 @@ import logging
 import platform
 
 appVersion = "1.3.1"
+settingsApp = "settings.exe"
 
 userName = os.getlogin()
 workingDir = os.getcwd()
@@ -83,17 +84,40 @@ print(f"[{currentTime.strftime("%X")}] To exit the app, simply close this window
 def run_commands():
   #App #1
   if not app_1:
-    print("Command #1 is not configured. Exiting the app and opening the settings app.")
-    logging.critical("Command #1 is not configured. Exiting the app and opening the settings app.")
-    ctypes.windll.user32.MessageBoxW(0, u"Command #1 is not configured. Exiting the app and opening the settings app.", u"Error", 0+16)
-    subprocess.Popen(["settings.exe"])
-    sys.exit()
+     getCurrentTime()
+     print(f"[{currentTime.strftime("%X")}] Command #1 is not configured. Exiting the app and opening the settings app.")
+     logging.critical("Command #1 is not configured. Exiting the app and opening the settings app.")
+     ctypes.windll.user32.MessageBoxW(0, u"Command #1 is not configured. Exiting the app and opening the settings app.", u"Error", 0+16)
+     try:
+      subprocess.Popen([settingsApp])
+     except FileNotFoundError:
+       getCurrentTime()
+       print(f"[{currentTime.strftime("%X")}] CRITICAL: Can not open settings.exe because it was moved or deleted.")
+       logging.critical("Can not open settings.exe because it was moved or deleted.")
+       ctypes.windll.user32.MessageBoxW(0, u"Can not open settings.exe because it was moved or deleted.", u"Error: settings.exe not found.", 0+16)
+     sys.exit()
   else:
-    subprocess.Popen([app_1], cwd=app1_dir)
-    getCurrentTime()
-    print(f"[{currentTime.strftime("%X")}] Launching(#1): {app1_name} ({app_1})")
-    logging.info(f"Launching(#1): {app1_name} ({app_1})")
-  time.sleep(time_between)
+     try:
+      subprocess.Popen([app_1], cwd=app1_dir)
+      getCurrentTime()
+      print(f"[{currentTime.strftime("%X")}] Launching(#1): {app1_name} ({app_1})")
+      logging.info(f"Launching(#1): {app1_name} ({app_1})")
+      time.sleep(time_between)
+
+     except FileNotFoundError:
+      getCurrentTime()
+      print(f"[{currentTime.strftime("%X")}] WARNING at command #1: The file {app_1} was moved or deleted.")
+      logging.warning(f"The file {app_1} was moved or deleted.")
+
+     except Exception as e:
+      getCurrentTime()
+      print(f"[{currentTime.strftime("%X")}] CRITICAL: An error occurred: {e}")
+      logging.critical(f"An error occurred at command #1: {e}")
+      getCurrentTime()
+      print(f"[{currentTime.strftime("%X")}] INFO: Error type: {type(e).__name__}")
+      logging.info(f"Error type: {type(e).__name__}")
+      ctypes.windll.user32.MessageBoxW(0, f"An error ocurred: {e}\nExiting the launcher.", f"Error: {type(e).__name__}", 0+16)
+      sys.exit()
 
   #Main loop 2-10
   for noOfCommands in range (2, 11):
@@ -111,10 +135,24 @@ def run_commands():
       print(f"[{currentTime.strftime("%X")}] Command #{noOfCommands} is not configured. Configure it in the settings.")
       logging.warning(f"Command #{noOfCommands} is not configured. Configure it in the settings.")
     else:
-        subprocess.Popen([app_x], cwd=appx_dir)
-        getCurrentTime()
-        print(f"[{currentTime.strftime("%X")}] Launching(#{noOfCommands}): {appx_name} ({app_x})")
-        logging.info(f"Launching(#{noOfCommands}): {appx_name} ({app_x})")
+        try:
+          subprocess.Popen([app_x], cwd=appx_dir)
+          getCurrentTime()
+          print(f"[{currentTime.strftime("%X")}] Launching(#{noOfCommands}): {appx_name} ({app_x})")
+          logging.info(f"Launching(#{noOfCommands}): {appx_name} ({app_x})")
+        except  FileNotFoundError:
+         getCurrentTime()
+         print(f"[{currentTime.strftime("%X")}] WARNING at command #{noOfCommands}: The file {app_x} was moved or deleted.")
+         logging.warning(f"The file {app_x} was moved or deleted.") 
+        except Exception as e:
+          getCurrentTime()
+          print(f"[{currentTime.strftime("%X")}] CRITICAL: An error occurred at command #{noOfCommands} ({app_x}): {e}")
+          logging.critical(f"An error occurred: {e}")
+          getCurrentTime()
+          print(f"[{currentTime.strftime("%X")}] INFO: Error type: {type(e).__name__}")
+          logging.info(f"Error type: {type(e).__name__}")
+          ctypes.windll.user32.MessageBoxW(0, f"An error ocurred at command #{noOfCommands} ({app_x}): {e}", f"Error: {type(e).__name__}", 0+16) 
+
     time.sleep(time_between)
  
 
@@ -123,7 +161,7 @@ run_commands()
 #Exiting  
 while True:
   getCurrentTime()
-  quiting = input(f"[{currentTime.strftime("%X")}] The app ran all the commands.\n > Action(restart/exit):")
+  quiting = input(f"[{currentTime.strftime("%X")}] The app ran all the commands.\n > Action(restart/exit/settings):")
   logging.info("\n----------------------------------------------------------------------------------------------------------------------------------------------------------------\n\nThe launcher ran all the commands.")
   if quiting == "exit":
     logging.info("Exiting...")
@@ -131,5 +169,14 @@ while True:
   elif quiting == "restart":
      logging.info("Running the commands again.\n----------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
      run_commands()
+  elif quiting == "settings":
+    logging.info("Opening the settings app...")  
+    try:
+      subprocess.Popen([settingsApp])
+    except FileNotFoundError:
+       print("CRITICAL: Can not open settings.exe because it was moved or deleted.")
+       logging.critical("Can not open settings.exe because it was moved or deleted.")
+       ctypes.windll.user32.MessageBoxW(0, u"Can not open settings.exe because it was moved or deleted.", u"Error: settings.exe not found.", 0+16)
+    sys.exit() 
   else:
     print("Wrong input.")
