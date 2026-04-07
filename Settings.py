@@ -8,11 +8,29 @@ import sv_ttk
 import webbrowser
 import os
 import platform
+import logging
+
+
+appVersion = "1.3.1"
+
+userName = os.getlogin()
+workingDir = os.getcwd()
 
 config = configparser.ConfigParser()
 
 # Read the existing file
 config.read('launcher.ini')
+
+logging.basicConfig(filename="settings.log", filemode="w", format="%(levelname)s: [%(asctime)s] - %(message)s", level=logging.INFO)
+
+# Log basic info
+logging.info("Multiple App Launcher")
+logging.info(f"Version: {appVersion}")
+logging.info(platform.platform())
+logging.info(f"Username: {userName}")
+logging.info(f"Working directory: {workingDir}\n----------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n")
+
+
 
 def app_1():
   file_path1 = filedialog.askopenfilename(
@@ -34,6 +52,8 @@ def app_1():
   with open('launcher.ini', 'w') as configfile:
      config.write(configfile)
 
+  logging.info(f"New value for app_1: {file_path1}")   
+
 def app_2():
   file_path1 = filedialog.askopenfilename(
     title="Select a file",
@@ -53,6 +73,8 @@ def app_2():
 # Write changes back to the file
   with open('launcher.ini', 'w') as configfile:
      config.write(configfile)
+
+  logging.info(f"New value for app_2: {file_path1}")    
 
 def app_3():
   file_path1 = filedialog.askopenfilename(
@@ -74,6 +96,8 @@ def app_3():
   with open('launcher.ini', 'w') as configfile:
      config.write(configfile)
 
+  logging.info(f"New value for app_3: {file_path1}")    
+
 def app_4():
   file_path1 = filedialog.askopenfilename(
     title="Select a file",
@@ -93,6 +117,8 @@ def app_4():
 # Write changes back to the file
   with open('launcher.ini', 'w') as configfile:
      config.write(configfile)
+
+  logging.info(f"New value for app_4: {file_path1}")    
 
 def app_5():
   file_path1 = filedialog.askopenfilename(
@@ -114,6 +140,8 @@ def app_5():
   with open('launcher.ini', 'w') as configfile:
      config.write(configfile)
 
+  logging.info(f"New value for app_5: {file_path1}") 
+
 def app_6():
   file_path1 = filedialog.askopenfilename(
     title="Select a file",
@@ -132,7 +160,9 @@ def app_6():
 
 # Write changes back to the file
   with open('launcher.ini', 'w') as configfile:
-     config.write(configfile)     
+     config.write(configfile)  
+
+  logging.info(f"New value for app_6: {file_path1}")       
 
 def app_7():
   file_path1 = filedialog.askopenfilename(
@@ -154,6 +184,8 @@ def app_7():
   with open('launcher.ini', 'w') as configfile:
      config.write(configfile)
 
+  logging.info(f"New value for app_7: {file_path1}")    
+
 def app_8():
   file_path1 = filedialog.askopenfilename(
     title="Select a file",
@@ -174,6 +206,8 @@ def app_8():
   with open('launcher.ini', 'w') as configfile:
      config.write(configfile)
 
+  logging.info(f"New value for app_8: {file_path1}")    
+
 def app_9():
   file_path1 = filedialog.askopenfilename(
     title="Select a file",
@@ -192,7 +226,9 @@ def app_9():
 
 # Write changes back to the file
   with open('launcher.ini', 'w') as configfile:
-     config.write(configfile)     
+     config.write(configfile) 
+
+  logging.info(f"New value for app_9: {file_path1}")        
 
 def app_10():
   file_path1 = filedialog.askopenfilename(
@@ -213,6 +249,8 @@ def app_10():
 # Write changes back to the file
   with open('launcher.ini', 'w') as configfile:
      config.write(configfile)
+
+  logging.info(f"New value for app_10: {file_path1}")    
 
 
 
@@ -237,9 +275,10 @@ def time_between():
        with open('launcher.ini', 'w') as configfile:
         config.write(configfile)     
 
-       ctypes.windll.user32.MessageBoxW(0, u"The value you entered was succesfully saved and will be used by the launcher.", u"Success!", 0+64) 
+       ctypes.windll.user32.MessageBoxW(0, u"The value you entered was succesfully saved and will be used by the launcher.", u"Success!", 0+64)
+       logging.info(f"New value for time_between: {time_between_new}")  
 def clear_config():
-  confirm = messagebox.askyesno("Clear settings", "Clear all command settings?")
+  confirm = messagebox.askyesno("Reset settings", "Reset all settings?")
   if confirm:
         config = configparser.ConfigParser()
         config['Apps'] = {
@@ -259,7 +298,8 @@ def clear_config():
         }
         with open('launcher.ini', 'w') as configfile:
             config.write(configfile)
-        messagebox.showinfo("Done clearing", "Command settings cleared.")
+        messagebox.showinfo("Reseted", "Reseted the settings to the defualt one.")
+        logging.info(f"Reseted the settings.") 
 
 #Open website of the project
 def openWebsite():
@@ -269,7 +309,9 @@ def openWebsite():
 def openConfigFile():
    configFile = 'launcher.ini'
    if platform.system() == "Windows":
-     os.startfile(configFile)        
+     os.startfile(configFile)
+
+   logging.info(f"Opened the launcher.ini file in text editor.")         
 
 # Main GUI
 root = Tk()
