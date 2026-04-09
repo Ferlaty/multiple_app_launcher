@@ -8,8 +8,9 @@ import datetime
 import logging
 import platform
 
-appVersion = "1.3.1"
+appVersion = "1.4.0-pre"
 settingsApp = "settings.exe"
+CONFIG_FILE = "launcher.ini"
 
 userName = os.getlogin()
 workingDir = os.getcwd()
@@ -29,7 +30,7 @@ logging.info(f"Working directory: {workingDir}\n--------------------------------
 config = configparser.ConfigParser()
 config.sections()
 
-launcherINI = config.read('launcher.ini')
+launcherINI = config.read(CONFIG_FILE)
 
 if not launcherINI:
   config['Apps'] = {'1': '',
@@ -43,7 +44,7 @@ if not launcherINI:
                      '9': '',
                      '10': ''}
   config['Time'] = {'time_between': '5'}
-  with open('launcher.ini', 'w') as configfile:
+  with open(CONFIG_FILE, 'w') as configfile:
    config.write(configfile)
 
 #Get app directories from the launcher.ini file

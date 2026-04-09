@@ -1,54 +1,69 @@
-# Multiple app launcher
-An app, which can launch multiple apps, which can be configured by the user.
+# Multiple App Launcher
+
+![Version](https://img.shields.io/badge/version-1.3.1-blue)
+![Python](https://img.shields.io/badge/python-3.9+-green)
+![Size](https://img.shields.io/badge/size-<30MB-orange)
+![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
+![License](https://img.shields.io/badge/license-Apache_2.0-red)
+
+A powerful yet simple utility to launch a suite of applications with a single click. Fully customizable via a user-friendly GUI.
 
 <p align="center">
-<img width="1104" height="354" alt="Image" src="https://github.com/user-attachments/assets/65b6c7c7-4939-4b04-bc94-347616f865d6" style="margin: auto; display: block;"/>
+  <img width="1104" alt="Launcher Preview" src="https://github.com/user-attachments/assets/65b6c7c7-4939-4b04-bc94-347616f865d6">
 </p>
 
-Main website: [ferlaty.pages.dev/multiple_app_launcher](https://ferlaty.pages.dev/multiple_app_launcher)
+🔗 **Official Website:** [ferlaty.pages.dev/multiple_app_launcher](https://ferlaty.pages.dev/multiple_app_launcher)
 
-## 🔥 Highligths:
-- beginer-friendly: easy to use the launcher
-- ligthweigth: under 30MB
-- can launch up to 5 different apps with custom delay (5s as deafult)
-- just copy paste & paste the main folder in the archive
-- can use multiple copies, just paste in different directories
-- console app
+---
 
-## Settings GUI app:
+## 🔥 Highlights
+
+- **Beginner-Friendly:** Simple interface designed for ease of use.
+- **Lightweight:** Tiny footprint (under 30MB).
+- **Custom Sequencing:** Launch up to 10 different apps with custom delays (default 5s).
+- **Portable:** No installation required. Just copy, paste, and run.
+- **Instance Support:** Run multiple independent configurations by placing the launcher in different directories.
+- **Hybrid Interface:** Features both a console based launcher and a settings app with GUI.
+
+---
+
+## ⚙️ Settings GUI
+Configure your paths, delays, and commands without touching a single line of code.
+
 <p align="center">
-<img width="473" height="616" alt="Image" src="https://github.com/user-attachments/assets/e9c8965c-a824-42c8-8ef6-6af70a3a7516" style="margin: auto; display: block;" />
+  <img width="400" alt="Settings GUI" src="https://github.com/user-attachments/assets/e9c8965c-a824-42c8-8ef6-6af70a3a7516">
 </p>
-Begginer friendly GUI
 
-# ⚙️ Instalation
+---
 
-## 🚀 Quick Start
+## 🚀 Quick Start (No Python Required)
 
-1. Go to the [Releases](https://github.com/Ferlaty/multiple_app_launcher/releases) page.
+1. **Download:** Head to the [Releases](https://github.com/Ferlaty/multiple_app_launcher/releases) page and grab the latest version.
+2. **Extract:** Unzip the archive to your preferred location.
+3. **Run:** Execute `multiple_app_launcher.exe`.
+4. **Optional (Shortcut):** To access it from your Start Menu, paste a shortcut into:
+   `C:\ProgramData\Microsoft\Windows\Start Menu\Programs`
 
-2. Download the version, which you want (latest is the recommended).
-
-3. Extract and run the executable. No Python installation required.
-
-4. Optional: you can paste a shortcut of the `multiple_app_launcher.exe` to `C:\ProgramData\Microsoft\Windows\Start Menu\Programs` and you will have it in your Start Menu.
+---
 
 ## 🛠️ Installation from Source
 
-### Prerequites: Python 3.9 or higher;
+### Prerequisites
+* Python 3.9 or higher
 
-### Instructions:
-
-1. Clone the repo: 
-   `git clone https://github.com/Ferlaty/multiple_app_launcher.git`
-   `cd multiple_app_launcher`
-
-2. Install Dependencies:
-   `pip install -r requirements.txt`
-
-3. Run the App:
-   `pip MultipleAppLauncher.py`   
-
+### Instructions
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Ferlaty/multiple_app_launcher.git
+   cd multiple_app_launcher
+2. **Install Dependencies:**
+   ```bash
+   pip install -r requirements.txt
+3. **Run the Application:**
+   ```bash
+   python MultipleAppLauncher.py
+### Pro tip
+* You can edit the settings file file manually by clicking `Open config file in text editor` in the settings app.
 
 
 2026 Ferlaty

@@ -11,7 +11,8 @@ import platform
 import logging
 
 
-appVersion = "1.3.1"
+appVersion = "1.4.0-pre"
+CONFIG_FILE = "launcher.ini"
 
 userName = os.getlogin()
 workingDir = os.getcwd()
@@ -19,7 +20,7 @@ workingDir = os.getcwd()
 config = configparser.ConfigParser()
 
 # Read the existing file
-config.read('launcher.ini')
+config.read(CONFIG_FILE)
 
 logging.basicConfig(filename="settings.log", filemode="w", format="%(levelname)s: [%(asctime)s] - %(message)s", level=logging.INFO)
 
@@ -31,226 +32,28 @@ logging.info(f"Username: {userName}")
 logging.info(f"Working directory: {workingDir}\n----------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n")
 
 
-
-def app_1():
-  file_path1 = filedialog.askopenfilename(
+# Set the dir to launch each command
+def set_app(number):
+   file_path1 = filedialog.askopenfilename(
     title="Select a file",
     filetypes=[("Executables", "*.exe"), ("Batch files", "*.bat"), ("All files", "*.*")]
   )    
-  section = 'Apps'
-  key = '1'
-  value = file_path1  # new value
+   section = 'Apps'
+   key = f'{number}'
+   value = file_path1  # new value
 
 # If the section does not exist, create it
-  if not config.has_section(section):
+   if not config.has_section(section):
       config.add_section(section)
 
 # Set the key/value
-  config.set(section, key, value)
+   config.set(section, key, value)
 
 # Write changes back to the file
-  with open('launcher.ini', 'w') as configfile:
+   with open(CONFIG_FILE, 'w') as configfile:
      config.write(configfile)
 
-  logging.info(f"New value for app_1: {file_path1}")   
-
-def app_2():
-  file_path1 = filedialog.askopenfilename(
-    title="Select a file",
-    filetypes=[("Executables", "*.exe"), ("Batch files", "*.bat"), ("All files", "*.*")]
-  )    
-  section = 'Apps'
-  key = '2'
-  value = file_path1  # new value
-
-# If the section does not exist, create it
-  if not config.has_section(section):
-      config.add_section(section)
-
-# Set the key/value
-  config.set(section, key, value)
-
-# Write changes back to the file
-  with open('launcher.ini', 'w') as configfile:
-     config.write(configfile)
-
-  logging.info(f"New value for app_2: {file_path1}")    
-
-def app_3():
-  file_path1 = filedialog.askopenfilename(
-    title="Select a file",
-    filetypes=[("Executables", "*.exe"), ("Batch files", "*.bat"), ("All files", "*.*")]
-  )    
-  section = 'Apps'
-  key = '3'
-  value = file_path1  # new value
-
-# If the section does not exist, create it
-  if not config.has_section(section):
-      config.add_section(section)
-
-# Set the key/value
-  config.set(section, key, value)
-
-# Write changes back to the file
-  with open('launcher.ini', 'w') as configfile:
-     config.write(configfile)
-
-  logging.info(f"New value for app_3: {file_path1}")    
-
-def app_4():
-  file_path1 = filedialog.askopenfilename(
-    title="Select a file",
-    filetypes=[("Executables", "*.exe"), ("Batch files", "*.bat"), ("All files", "*.*")]
-  )    
-  section = 'Apps'
-  key = '4'
-  value = file_path1  # new value
-
-# If the section does not exist, create it
-  if not config.has_section(section):
-      config.add_section(section)
-
-# Set the key/value
-  config.set(section, key, value)
-
-# Write changes back to the file
-  with open('launcher.ini', 'w') as configfile:
-     config.write(configfile)
-
-  logging.info(f"New value for app_4: {file_path1}")    
-
-def app_5():
-  file_path1 = filedialog.askopenfilename(
-    title="Select a file",
-    filetypes=[("Executables", "*.exe"), ("Batch files", "*.bat"), ("All files", "*.*")]
-  )    
-  section = 'Apps'
-  key = '5'
-  value = file_path1  # new value
-
-# If the section does not exist, create it
-  if not config.has_section(section):
-      config.add_section(section)
-
-# Set the key/value
-  config.set(section, key, value)
-
-# Write changes back to the file
-  with open('launcher.ini', 'w') as configfile:
-     config.write(configfile)
-
-  logging.info(f"New value for app_5: {file_path1}") 
-
-def app_6():
-  file_path1 = filedialog.askopenfilename(
-    title="Select a file",
-    filetypes=[("Executables", "*.exe"), ("Batch files", "*.bat"), ("All files", "*.*")]
-  )    
-  section = 'Apps'
-  key = '6'
-  value = file_path1  # new value
-
-# If the section does not exist, create it
-  if not config.has_section(section):
-      config.add_section(section)
-
-# Set the key/value
-  config.set(section, key, value)
-
-# Write changes back to the file
-  with open('launcher.ini', 'w') as configfile:
-     config.write(configfile)  
-
-  logging.info(f"New value for app_6: {file_path1}")       
-
-def app_7():
-  file_path1 = filedialog.askopenfilename(
-    title="Select a file",
-    filetypes=[("Executables", "*.exe"), ("Batch files", "*.bat"), ("All files", "*.*")]
-  )    
-  section = 'Apps'
-  key = '7'
-  value = file_path1  # new value
-
-# If the section does not exist, create it
-  if not config.has_section(section):
-      config.add_section(section)
-
-# Set the key/value
-  config.set(section, key, value)
-
-# Write changes back to the file
-  with open('launcher.ini', 'w') as configfile:
-     config.write(configfile)
-
-  logging.info(f"New value for app_7: {file_path1}")    
-
-def app_8():
-  file_path1 = filedialog.askopenfilename(
-    title="Select a file",
-    filetypes=[("Executables", "*.exe"), ("Batch files", "*.bat"), ("All files", "*.*")]
-  )    
-  section = 'Apps'
-  key = '8'
-  value = file_path1  # new value
-
-# If the section does not exist, create it
-  if not config.has_section(section):
-      config.add_section(section)
-
-# Set the key/value
-  config.set(section, key, value)
-
-# Write changes back to the file
-  with open('launcher.ini', 'w') as configfile:
-     config.write(configfile)
-
-  logging.info(f"New value for app_8: {file_path1}")    
-
-def app_9():
-  file_path1 = filedialog.askopenfilename(
-    title="Select a file",
-    filetypes=[("Executables", "*.exe"), ("Batch files", "*.bat"), ("All files", "*.*")]
-  )    
-  section = 'Apps'
-  key = '9'
-  value = file_path1  # new value
-
-# If the section does not exist, create it
-  if not config.has_section(section):
-      config.add_section(section)
-
-# Set the key/value
-  config.set(section, key, value)
-
-# Write changes back to the file
-  with open('launcher.ini', 'w') as configfile:
-     config.write(configfile) 
-
-  logging.info(f"New value for app_9: {file_path1}")        
-
-def app_10():
-  file_path1 = filedialog.askopenfilename(
-    title="Select a file",
-    filetypes=[("Executables", "*.exe"), ("Batch files", "*.bat"), ("All files", "*.*")]
-  )    
-  section = 'Apps'
-  key = '10'
-  value = file_path1  # new value
-
-# If the section does not exist, create it
-  if not config.has_section(section):
-      config.add_section(section)
-
-# Set the key/value
-  config.set(section, key, value)
-
-# Write changes back to the file
-  with open('launcher.ini', 'w') as configfile:
-     config.write(configfile)
-
-  logging.info(f"New value for app_10: {file_path1}")    
+   logging.info(f"New value for app_{number}: {file_path1}")
 
 
 
@@ -258,7 +61,7 @@ def time_between():
   time_between_new = input_text_time.get()
   
   if not time_between_new.isdigit():
-     ctypes.windll.user32.MessageBoxW(0, u"The value you entered is not a valid digit. Try entering a digit without decimals, space, letter or not negative number.", u"Error. Not valid digit!", 0+16)
+     ctypes.windll.user32.MessageBoxW(0, u"The value you entered is not a valid digit. Try entering a digit without decimals, space, letter or not negative number.", u"Error: Not valid digit!", 0+16)
   else:
        section = 'Time'
        key = 'time_between'
@@ -272,7 +75,7 @@ def time_between():
        config.set(section, key, value)
 
 # Write changes back to the file
-       with open('launcher.ini', 'w') as configfile:
+       with open(CONFIG_FILE, 'w') as configfile:
         config.write(configfile)     
 
        ctypes.windll.user32.MessageBoxW(0, u"The value you entered was succesfully saved and will be used by the launcher.", u"Success!", 0+64)
@@ -296,7 +99,7 @@ def clear_config():
         config['Time'] = {
           'time_between': '5'
         }
-        with open('launcher.ini', 'w') as configfile:
+        with open(CONFIG_FILE, 'w') as configfile:
             config.write(configfile)
         messagebox.showinfo("Reseted", "Reseted the settings to the defualt one.")
         logging.info(f"Reseted the settings.") 
@@ -307,11 +110,11 @@ def openWebsite():
 
 #Open the config file (launcher.ini)
 def openConfigFile():
-   configFile = 'launcher.ini'
+   configFile = CONFIG_FILE
    if platform.system() == "Windows":
      os.startfile(configFile)
 
-   logging.info(f"Opened the launcher.ini file in text editor.")         
+   logging.info(f"Opened the {CONFIG_FILE} file in text editor.")         
 
 # Main GUI
 root = Tk()
@@ -349,16 +152,10 @@ input_text_time = StringVar()
 #Buttons + txt
 ttk.Label(frm, text="Multiple App Launcher", style="style1.TLabel").grid(column=0, row=0)
 ttk.Label(frm, text="").grid(column=0, row=1)
-ttk.Button(frm, text="Command #1", command=app_1, style="TButton").grid(column=0, row=2)
-ttk.Button(frm, text="Command #2", command=app_2, style="TButton").grid(column=0, row=3)
-ttk.Button(frm, text="Command #3", command=app_3, style="TButton").grid(column=0, row=4)
-ttk.Button(frm, text="Command #4", command=app_4, style="TButton").grid(column=0, row=5)
-ttk.Button(frm, text="Command #5", command=app_5, style="TButton").grid(column=0, row=6)
-ttk.Button(frm, text="Command #6", command=app_6, style="TButton").grid(column=0, row=7)
-ttk.Button(frm, text="Command #7", command=app_7, style="TButton").grid(column=0, row=8)
-ttk.Button(frm, text="Command #8", command=app_8, style="TButton").grid(column=0, row=9)
-ttk.Button(frm, text="Command #9", command=app_9, style="TButton").grid(column=0, row=10)
-ttk.Button(frm, text="Command #10", command=app_10, style="TButton").grid(column=0, row=11)
+
+for noOfBtns in range (1, 11):
+   currentRow = noOfBtns + 1
+   ttk.Button(frm, text=f"Command #{noOfBtns}", command=lambda n=noOfBtns: set_app(n), style="TButton").grid(column=0, row=currentRow)
 ttk.Label(frm, text="Time delay between executing\nthe commands in seconds (s):", style="style3.TLabel").grid(column=1, row=3)
 ttk.Entry(frm, textvariable=input_text_time, font = ('Consolas', 13, 'bold')).grid(column=1, row=4)
 ttk.Button(frm, text="Save", command=time_between, style="Accent.TButton").grid(column=1, row=5)
