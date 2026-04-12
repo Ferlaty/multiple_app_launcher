@@ -9,7 +9,11 @@ import logging
 import platform
 
 appVersion = "1.4.0-pre"
-settingsApp = "settings.exe"
+if platform.system() == "Windows":
+  settingsAppPre = "settings.exe"
+else:
+  settingsAppPre = "settings"  
+settingsApp = os.path.join(os.getcwd(), settingsAppPre)
 CONFIG_FILE = "launcher.ini"
 
 userName = os.getlogin()
@@ -23,6 +27,7 @@ logging.info("Multiple App Launcher")
 logging.info(f"Version: {appVersion}")
 logging.info(platform.platform())
 logging.info(f"Username: {userName}")
+logging.info(f"Settings app path: {settingsApp}")
 logging.info(f"Working directory: {workingDir}\n----------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n")
 
 
@@ -103,14 +108,16 @@ def run_commands():
      getCurrentTime()
      print(f"[{currentTime.strftime("%X")}] Command #1 is not configured. Exiting the app and opening the settings app.")
      logging.critical("Command #1 is not configured. Exiting the app and opening the settings app.")
-     ctypes.windll.user32.MessageBoxW(0, u"Command #1 is not configured. Exiting the app and opening the settings app.", u"Error", 0+16)
+     if platform.system() == 'Windows':
+      ctypes.windll.user32.MessageBoxW(0, u"Command #1 is not configured. Exiting the app and opening the settings app.", u"Error", 0+16)
      try:
       subprocess.Popen([settingsApp])
      except FileNotFoundError:
        getCurrentTime()
        print(f"[{currentTime.strftime("%X")}] CRITICAL: Can not open settings.exe because it was moved or deleted.")
        logging.critical("Can not open settings.exe because it was moved or deleted.")
-       ctypes.windll.user32.MessageBoxW(0, u"Can not open settings.exe because it was moved or deleted.", u"Error: settings.exe not found.", 0+16)
+       if platform.system() == 'Windows':
+        ctypes.windll.user32.MessageBoxW(0, u"Can not open settings.exe because it was moved or deleted.", u"Error: settings.exe not found.", 0+16)
      sys.exit()
   else:
      try:
@@ -132,7 +139,8 @@ def run_commands():
       getCurrentTime()
       print(f"[{currentTime.strftime("%X")}] INFO: Error type: {type(e).__name__}")
       logging.info(f"Error type: {type(e).__name__}")
-      ctypes.windll.user32.MessageBoxW(0, f"An error ocurred: {e}\nExiting the launcher.", f"Error: {type(e).__name__}", 0+16)
+      if platform.system() == 'Windows':
+        ctypes.windll.user32.MessageBoxW(0, f"An error ocurred: {e}\nExiting the launcher.", f"Error: {type(e).__name__}", 0+16)
       sys.exit()
 
   #Main loop 2-10
@@ -167,7 +175,8 @@ def run_commands():
           getCurrentTime()
           print(f"[{currentTime.strftime("%X")}] INFO: Error type: {type(e).__name__}")
           logging.info(f"Error type: {type(e).__name__}")
-          ctypes.windll.user32.MessageBoxW(0, f"An error ocurred at command #{noOfCommands} ({app_x}): {e}", f"Error: {type(e).__name__}", 0+16) 
+          if platform.system() == 'Windows':
+            ctypes.windll.user32.MessageBoxW(0, f"An error ocurred at command #{noOfCommands} ({app_x}): {e}", f"Error: {type(e).__name__}", 0+16) 
 
     time.sleep(time_between)
  
@@ -192,7 +201,8 @@ while True:
     except FileNotFoundError:
        print("CRITICAL: Can not open settings.exe because it was moved or deleted.")
        logging.critical("Can not open settings.exe because it was moved or deleted.")
-       ctypes.windll.user32.MessageBoxW(0, u"Can not open settings.exe because it was moved or deleted.", u"Error: settings.exe not found.", 0+16)
+       if platform.system() == 'Windows':
+        ctypes.windll.user32.MessageBoxW(0, u"Can not open settings.exe because it was moved or deleted.", u"Error: settings.exe not found.", 0+16)
     sys.exit() 
   else:
     print("Wrong input.")

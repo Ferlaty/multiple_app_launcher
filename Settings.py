@@ -9,6 +9,7 @@ import webbrowser
 import os
 import platform
 import logging
+import subprocess
 
 
 appVersion = "1.4.0-pre"
@@ -61,7 +62,10 @@ def time_between():
   time_between_new = input_text_time.get()
   
   if not time_between_new.isdigit():
-     ctypes.windll.user32.MessageBoxW(0, u"The value you entered is not a valid digit. Try entering a digit without decimals, space, letter or not negative number.", u"Error: Not valid digit!", 0+16)
+     if platform.system() == 'Windows':
+      ctypes.windll.user32.MessageBoxW(0, u"The value you entered is not a valid digit. Try entering a digit without decimals, space, letter or not negative number.", u"Error: Not valid digit!", 0+16)
+     elif platform.system() == "Linux":
+        messagebox.showerror("Error: Not valid digit!", "The value you entered is not a valid digit. Try entering a digit without decimals, space, letter or not negative number.") 
   else:
        section = 'Time'
        key = 'time_between'
@@ -77,8 +81,10 @@ def time_between():
 # Write changes back to the file
        with open(CONFIG_FILE, 'w') as configfile:
         config.write(configfile)     
-
-       ctypes.windll.user32.MessageBoxW(0, u"The value you entered was succesfully saved and will be used by the launcher.", u"Success!", 0+64)
+       if platform.system() == 'Windows':
+         ctypes.windll.user32.MessageBoxW(0, u"The value you entered was succesfully saved and will be used by the launcher.", u"Success!", 0+64)
+       elif platform.system() == "Linux":
+           messagebox.showinfo("Success!", "The value you entered was succesfully saved and will be used by the launcher.")
        logging.info(f"New value for time_between: {time_between_new}")  
 def clear_config():
   confirm = messagebox.askyesno("Reset settings", "Reset all settings?")
@@ -113,6 +119,8 @@ def openConfigFile():
    configFile = CONFIG_FILE
    if platform.system() == "Windows":
      os.startfile(configFile)
+   elif platform.system() == "Linux":
+      subprocess.run(["xdg-open", configFile])
 
    logging.info(f"Opened the {CONFIG_FILE} file in text editor.")         
 
@@ -121,7 +129,11 @@ root = Tk()
 frm = ttk.Frame(root, padding=5)
 frm.grid()
 root.title("Multiple App Launcher")
-root.iconbitmap("icon.ico")
+if platform.system() == 'Windows':
+   root.iconbitmap("icon.ico")
+elif platform.system() == 'Linux':
+   imgICO = PhotoImage(file='icon.png')
+   root.iconphoto(False, imgICO)   
 root.resizable(False, False)
 
 watermark = PhotoImage(file="icon.png")
