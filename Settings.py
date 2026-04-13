@@ -132,7 +132,7 @@ root.title("Multiple App Launcher")
 if platform.system() == 'Windows':
    root.iconbitmap("icon.ico")
 elif platform.system() == 'Linux':
-   imgICO = PhotoImage(file='icon.png')
+   imgICO = PhotoImage(file='ico.png')
    root.iconphoto(False, imgICO)   
 root.resizable(False, False)
 
@@ -175,7 +175,9 @@ ttk.Button(frm, text="Reset to defualt", command=clear_config, style="Accent.TBu
 ttk.Button(frm, text="Open config file\n in text editor", command=openConfigFile, style="Accent.TButton").grid(column=1, row=11)
 ttk.Button(frm, text="Quit", command=root.destroy, style="Accent.TButton").grid(column=1, row=15, sticky="e")
 ttk.Label(frm, text="").grid(column=0, row=12)
-ttk.Button(frm, text="", image=watermark, command=openWebsite).grid(column=0, row=13, sticky="w")
+openWebsiteBtn = ttk.Label(frm, text="", image=watermark)
+openWebsiteBtn.grid(column=0, row=13, sticky="w")
+openWebsiteBtn.bind('<Button-1>', lambda event: openWebsite())
 ttk.Label(frm, text="© 2026 Ferlaty. All rights reserved.", style="footer.TLabel").grid(column=0, row=15, sticky="sw")
 
 root.mainloop()
