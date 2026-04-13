@@ -99,7 +99,7 @@ def getCurrentTime():
 #Start
 getCurrentTime()
 print(f"Multiple App Launcher\nVersion: {appVersion}\n")
-print(f"[{currentTime.strftime("%X")}] To exit the app, simply close this window or pres CTRL + C.\nHint: you can configure everything in the settings.exe app, even the delay time!")
+print(f"[{currentTime.strftime("%X")}] To exit the app, simply close this window or pres CTRL + C.\nHint: you can configure everything in the settings app, even the delay time!")
 
 #Main app logic
 def run_commands():
@@ -114,10 +114,10 @@ def run_commands():
       subprocess.Popen([settingsApp])
      except FileNotFoundError:
        getCurrentTime()
-       print(f"[{currentTime.strftime("%X")}] CRITICAL: Can not open settings.exe because it was moved or deleted.")
-       logging.critical("Can not open settings.exe because it was moved or deleted.")
+       print(f"[{currentTime.strftime("%X")}] CRITICAL: Can not open settings because it was moved or deleted.")
+       logging.critical("Can not open settings because it was moved or deleted.")
        if platform.system() == 'Windows':
-        ctypes.windll.user32.MessageBoxW(0, u"Can not open settings.exe because it was moved or deleted.", u"Error: settings.exe not found.", 0+16)
+        ctypes.windll.user32.MessageBoxW(0, u"Can not open settings because it was moved or deleted.", u"Error: settings not found.", 0+16)
      sys.exit()
   else:
      try:
@@ -199,10 +199,10 @@ while True:
     try:
       subprocess.Popen([settingsApp])
     except FileNotFoundError:
-       print("CRITICAL: Can not open settings.exe because it was moved or deleted.")
-       logging.critical("Can not open settings.exe because it was moved or deleted.")
+       print("CRITICAL: Can not open settings because it was moved or deleted.")
+       logging.critical("Can not open settings. because it was moved or deleted.")
        if platform.system() == 'Windows':
-        ctypes.windll.user32.MessageBoxW(0, u"Can not open settings.exe because it was moved or deleted.", u"Error: settings.exe not found.", 0+16)
+        ctypes.windll.user32.MessageBoxW(0, u"Can not open settings because it was moved or deleted.", u"Error: settings not found.", 0+16)
     sys.exit() 
   else:
     print("Wrong input.")
