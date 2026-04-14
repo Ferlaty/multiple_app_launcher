@@ -21,7 +21,22 @@ workingDir = os.getcwd()
 config = configparser.ConfigParser()
 
 # Read the existing file
-config.read(CONFIG_FILE)
+launcherINI = config.read(CONFIG_FILE)
+
+if not launcherINI:
+  config['Apps'] = {'1': '',
+                     '2': '',
+                     '3': '',
+                     '4': '',
+                     '5': '',
+                     '6': '',
+                     '7': '',
+                     '8': '',
+                     '9': '',
+                     '10': ''}
+  config['Time'] = {'time_between': '5'}
+  with open(CONFIG_FILE, 'w') as configfile:
+   config.write(configfile)
 
 logging.basicConfig(filename="settings.log", filemode="w", format="%(levelname)s: [%(asctime)s] - %(message)s", level=logging.INFO)
 
