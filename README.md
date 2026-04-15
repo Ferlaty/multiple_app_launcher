@@ -52,7 +52,7 @@ Configure your paths, delays, and commands without touching a single line of cod
 
 ### Prerequisites
 * Python 3.9 or higher
-
+---
 ### Instructions
 1. **Clone the repository:**
    ```bash
@@ -86,7 +86,7 @@ Configure your paths, delays, and commands without touching a single line of cod
    ```bash
    python MultipleAppLauncher.py
    ```  
-
+---
 ### Pro tip
 * You can edit the settings file file manually by clicking `Open config file in text editor` in the settings app.
 
