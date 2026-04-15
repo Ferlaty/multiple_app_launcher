@@ -91,4 +91,4 @@ Configure your paths, delays, and commands without touching a single line of cod
 * You can edit the settings file file manually by clicking `Open config file in text editor` in the settings app.
 
 
-2026 Ferlaty
+2026 [Ferlaty](https://ferlaty.pages.dev/)
