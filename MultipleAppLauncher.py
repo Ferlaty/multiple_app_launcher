@@ -7,8 +7,9 @@ import sys
 import datetime
 import logging
 import platform
+import webbrowser
 
-appVersion = "1.4.0-pre"
+appVersion = "1.4.0"
 if platform.system() == "Windows":
   settingsAppPre = "settings.exe"
 else:
@@ -186,7 +187,7 @@ run_commands()
 #Exiting  
 while True:
   getCurrentTime()
-  quiting = input(f"[{currentTime.strftime("%X")}] The app ran all the commands.\n > Action(restart/exit/settings):")
+  quiting = input(f"[{currentTime.strftime("%X")}] The app ran all the commands.\n > Action(restart/exit/settings/website):")
   logging.info("\n----------------------------------------------------------------------------------------------------------------------------------------------------------------\n\nThe launcher ran all the commands.")
   if quiting == "exit":
     logging.info("Exiting...")
@@ -202,7 +203,9 @@ while True:
        print("CRITICAL: Can not open settings because it was moved or deleted.")
        logging.critical("Can not open settings. because it was moved or deleted.")
        if platform.system() == 'Windows':
-        ctypes.windll.user32.MessageBoxW(0, u"Can not open settings because it was moved or deleted.", u"Error: settings not found.", 0+16)
-    sys.exit() 
+        ctypes.windll.user32.MessageBoxW(0, u"Can not open settings because it was moved or deleted.", u"Error: settings not found.", 0+16) 
+  elif quiting == "website":
+    logging.info("Opening the website...")
+    webbrowser.open("https://ferlaty.pages.dev/multiple_app_launcher")
   else:
     print("Wrong input.")

@@ -12,7 +12,7 @@ import logging
 import subprocess
 
 
-appVersion = "1.4.0-pre"
+appVersion = "1.4.0"
 CONFIG_FILE = "launcher.ini"
 
 userName = os.getlogin()

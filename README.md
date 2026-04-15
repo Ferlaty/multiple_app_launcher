@@ -1,9 +1,10 @@
 # Multiple App Launcher
 
-![Version](https://img.shields.io/badge/version-1.3.1-blue)
+![Version](https://img.shields.io/badge/version-1.4.0-blue)
 ![Python](https://img.shields.io/badge/python-3.9+-green)
 ![Size](https://img.shields.io/badge/size-<30MB-orange)
 ![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
+![Platform](https://img.shields.io/badge/platform-Linux-lightgrey)
 ![License](https://img.shields.io/badge/license-Apache_2.0-red)
 
 A powerful yet simple utility to launch a suite of applications with a single click. Fully customizable via a user-friendly GUI.
@@ -24,6 +25,7 @@ A powerful yet simple utility to launch a suite of applications with a single cl
 - **Portable:** No installation required. Just copy, paste, and run.
 - **Instance Support:** Run multiple independent configurations by placing the launcher in different directories.
 - **Hybrid Interface:** Features both a console based launcher and a settings app with GUI.
+- **Cross-platform compatibility:** Supports both Windows and Linux.
 
 ---
 
@@ -40,8 +42,8 @@ Configure your paths, delays, and commands without touching a single line of cod
 
 1. **Download:** Head to the [Releases](https://github.com/Ferlaty/multiple_app_launcher/releases) page and grab the latest version.
 2. **Extract:** Unzip the archive to your preferred location.
-3. **Run:** Execute `multiple_app_launcher.exe`.
-4. **Optional (Shortcut):** To access it from your Start Menu, paste a shortcut into:
+3. **Run:** Execute `multiple_app_launcher.exe` on *Windows*, `multiple_app_launcher` on *Linux*.
+4. **Optional (Shortcut, Windows only):** To access it from your Start Menu, paste a shortcut into:
    `C:\ProgramData\Microsoft\Windows\Start Menu\Programs`
 
 ---
@@ -56,12 +58,35 @@ Configure your paths, delays, and commands without touching a single line of cod
    ```bash
    git clone https://github.com/Ferlaty/multiple_app_launcher.git
    cd multiple_app_launcher
+   ```
 2. **Install Dependencies:**
    ```bash
    pip install -r requirements.txt
-3. **Run the Application:**
+   ```
+3. **Run compile the settings app**
+   ```bash
+   python compile.py
+   ```
+   *Select `settings` and hit enter.*
+
+4. **Move the executable to the main folder**
+   ```bash
+   cd dist
+   ```
+   *Windows*
+    ```bash
+    move settings.exe ..
+    ```
+   *Linux*
+    ```bash
+    mv settings ..
+    ```
+
+5. **Run the Application:**
    ```bash
    python MultipleAppLauncher.py
+   ```  
+
 ### Pro tip
 * You can edit the settings file file manually by clicking `Open config file in text editor` in the settings app.
 
