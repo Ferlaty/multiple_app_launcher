@@ -42,7 +42,11 @@ Configure your paths, delays, and commands without touching a single line of cod
 
 1. **Download:** Head to the [Releases](https://github.com/Ferlaty/multiple_app_launcher/releases) page and grab the latest version.
 2. **Extract:** Unzip the archive to your preferred location.
-3. **Run:** Execute `multiple_app_launcher.exe` on *Windows*, `multiple_app_launcher` on *Linux*.
+3. **Run:**
+    * **Windows**: Execute `multiple_app_launcher.exe`.
+    * **Linux**:
+        * **For first time**: Double click `settings` and configure the settings.
+        * **Later launches**: Right click on `run_launcher.sh` and click on "Run as a Programme".  
 4. **Optional (Shortcut, Windows only):** To access it from your Start Menu, paste a shortcut into:
    `C:\ProgramData\Microsoft\Windows\Start Menu\Programs`
 
