@@ -10,7 +10,7 @@
 A powerful yet simple utility to launch a suite of applications with a single click. Fully customizable via a user-friendly GUI.
 
 <p align="center">
-  <img width="1104" alt="Launcher Preview" src="https://github.com/user-attachments/assets/65b6c7c7-4939-4b04-bc94-347616f865d6">
+  <img width="1104" alt="Launcher Preview" src="https://ferlaty.pages.dev/assets/multiple_app_launcher.png">
 </p>
 
 🔗 **Official Website:** [ferlaty.pages.dev/multiple_app_launcher](https://ferlaty.pages.dev/multiple_app_launcher)
@@ -33,7 +33,7 @@ A powerful yet simple utility to launch a suite of applications with a single cl
 Configure your paths, delays, and commands without touching a single line of code.
 
 <p align="center">
-  <img width="400" alt="Settings GUI" src="https://github.com/user-attachments/assets/e9c8965c-a824-42c8-8ef6-6af70a3a7516">
+  <img width="400" alt="Settings GUI" src="https://ferlaty.pages.dev/assets/multiple_app_launcher1.png">
 </p>
 
 ---
