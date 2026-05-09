@@ -55,7 +55,7 @@ def set_app(number):
    if platform.system() == "Windows":
      filetypes1=[("Executables", "*.exe"), ("Batch files", "*.bat *.cmd"), ("Windows Installer package", "*.msi"), ("Powershell script", "*.ps1"), ("VBScript", "*.vbs "), ("All files", "*.*")]
    elif platform.system() == "Linux":
-      filetypes1=[("No extension", "*"), ("Shell Script", "*.sh"),("Generic Binary Executable", "*.bin"), ("Executable and Linkable Format", "*.elf"), ("Self-Contained Installer/Binary", "*.run")]
+      filetypes1=[("No extension", "*"), ("Shell Script", "*.sh"),("Generic Binary Executable", "*.bin"), ("Executable and Linkable Format", "*.elf"), ("Self-Contained Installer/Binary", "*.run"), ("All files", "*.*")]
 
    file_path1 = filedialog.askopenfilename(
     title="Select a file",
