@@ -10,9 +10,10 @@ import os
 import platform
 import logging
 import subprocess
+import modules
 
 
-appVersion = "1.4.0"
+appVersion = "1.4.1"
 CONFIG_FILE = "launcher.ini"
 
 userName = os.getlogin()
@@ -50,9 +51,15 @@ logging.info(f"Working directory: {workingDir}\n--------------------------------
 
 # Set the dir to launch each command
 def set_app(number):
+
+   if platform.system() == "Windows":
+     filetypes1=[("Executables", "*.exe"), ("Batch files", "*.bat *.cmd"), ("Windows Installer package", "*.msi"), ("Powershell script", "*.ps1"), ("VBScript", "*.vbs "), ("All files", "*.*")]
+   elif platform.system() == "Linux":
+      filetypes1=[("No extension", "*"), ("Shell Script", "*.sh"),("Generic Binary Executable", "*.bin"), ("Executable and Linkable Format", "*.elf"), ("Self-Contained Installer/Binary", "*.run")]
+
    file_path1 = filedialog.askopenfilename(
     title="Select a file",
-    filetypes=[("Executables", "*.exe"), ("Batch files", "*.bat"), ("All files", "*.*")]
+    filetypes=filetypes1
   )    
    section = 'Apps'
    key = f'{number}'
@@ -127,7 +134,7 @@ def clear_config():
 
 #Open website of the project
 def openWebsite():
-   webbrowser.open("https://ferlaty.pages.dev/multiple_app_launcher")
+   modules.openProjectPage()
 
 #Open the config file (launcher.ini)
 def openConfigFile():
@@ -193,6 +200,6 @@ ttk.Label(frm, text="").grid(column=0, row=12)
 openWebsiteBtn = ttk.Label(frm, text="", image=watermark)
 openWebsiteBtn.grid(column=0, row=13, sticky="w")
 openWebsiteBtn.bind('<Button-1>', lambda event: openWebsite())
-ttk.Label(frm, text="© 2026 Ferlaty. All rights reserved.", style="footer.TLabel").grid(column=0, row=15, sticky="sw")
+ttk.Label(frm, text="© 2026 Ferlaty. Licensed under Apache License 2.0 license.", style="footer.TLabel").grid(column=0, row=15, sticky="sw")
 
 root.mainloop()

@@ -7,9 +7,9 @@ import sys
 import datetime
 import logging
 import platform
-import webbrowser
+import modules
 
-appVersion = "1.4.0"
+appVersion = "1.4.1"
 if platform.system() == "Windows":
   settingsAppPre = "settings.exe"
 else:
@@ -206,6 +206,6 @@ while True:
         ctypes.windll.user32.MessageBoxW(0, u"Can not open settings because it was moved or deleted.", u"Error: settings not found.", 0+16) 
   elif quiting == "website":
     logging.info("Opening the website...")
-    webbrowser.open("https://ferlaty.pages.dev/multiple_app_launcher")
+    modules.openProjectPage()
   else:
     print("Wrong input.")
