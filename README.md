@@ -13,7 +13,7 @@ A powerful yet simple utility to launch a suite of applications with a single cl
   <img width="1104" alt="Launcher Preview" src="https://ferlaty.pages.dev/assets/multiple_app_launcher.png">
 </p>
 
-🔗 **Official Website:** [ferlaty.pages.dev/multiple_app_launcher](https://ferlaty.pages.dev/content/multiple-app-launcher/)
+🔗 **Official Website:** [ferlaty.pages.dev/content/multiple-app-launcher/](https://ferlaty.pages.dev/content/multiple-app-launcher/)
 
 ---
 
