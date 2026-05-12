@@ -129,7 +129,7 @@ def clear_config():
         }
         with open(CONFIG_FILE, 'w') as configfile:
             config.write(configfile)
-        messagebox.showinfo("Reseted", "Reseted the settings to the defualt one.")
+        messagebox.showinfo("Reseted", "Reseted the settings to the default one.")
         logging.info(f"Reseted the settings.") 
 
 #Open website of the project
@@ -193,7 +193,7 @@ for noOfBtns in range (1, 11):
 ttk.Label(frm, text="Time delay between executing\nthe commands in seconds (s):", style="style3.TLabel").grid(column=1, row=3)
 ttk.Entry(frm, textvariable=input_text_time, font = ('Consolas', 13, 'bold')).grid(column=1, row=4)
 ttk.Button(frm, text="Save", command=time_between, style="Accent.TButton").grid(column=1, row=5)
-ttk.Button(frm, text="Reset to defualt", command=clear_config, style="Accent.TButton").grid(column=1, row=8)
+ttk.Button(frm, text="Reset", command=clear_config, style="Accent.TButton").grid(column=1, row=8)
 ttk.Button(frm, text="Open config file\n in text editor", command=openConfigFile, style="Accent.TButton").grid(column=1, row=11)
 ttk.Button(frm, text="Quit", command=root.destroy, style="Accent.TButton").grid(column=1, row=15, sticky="e")
 ttk.Label(frm, text="").grid(column=0, row=12)

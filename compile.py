@@ -7,10 +7,10 @@ def run_build():
     system = platform.system()
     print(f"Detected System: {system}")
 
-    script = str(input("Select the script to compile:\n> launcher/settings          "))
+    script = str(input("Select the script to compile:\n1 : launcher\n2 : settings\n> "))
     
 
-    if script == "launcher":
+    if script == "launcher" or script == "1":
         # Common flags for both systems
         # --onefile: Bundles everything into one .exe or binary
         # --clean: Cleans PyInstaller cache
@@ -33,7 +33,7 @@ def run_build():
         print(f"Running command: {' '.join(cmd)}")
         subprocess.run(cmd)
 
-    elif script == "settings":
+    elif script == "settings" or script == "2":
         base_cmd = ["pyinstaller", "--noconsole", "--onefile", "--noupx", "--name=settings", "Settings.py"]
 
         if system == "Windows":
