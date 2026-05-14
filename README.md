@@ -46,7 +46,7 @@ Configure your paths, delays, and commands without touching a single line of cod
     * **Windows**: Execute `multiple_app_launcher.exe`.
     * **Linux**:
         * **For first time**: Double click `settings` and configure the settings.
-        * **Later launches**: Right click on `run_launcher.sh` and click on "Run as a Programme".  
+        * **Later launches**: Right click on `run_launcher.sh` and click on "Run as a Program".  
 4. **Optional (Shortcut, Windows only):** To access it from your Start Menu, paste a shortcut into:
    `C:\ProgramData\Microsoft\Windows\Start Menu\Programs`
 
